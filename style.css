@@ -1,0 +1,397 @@
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    padding: 20px;
+}
+
+html,
+body {
+    margin: 0;
+}
+
+body {
+    height: 1200px;
+    position: relative;
+}
+
+#scroll_top {
+    position: fixed;
+    bottom: 10%;
+    right: 10%;
+}
+
+#header_nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 20px;
+    display: flex;
+    position: absolute;
+    right: 12px;
+    top: 0;
+    height: 100%;
+    gap: 12px;
+    align-items: center;
+}
+
+#header_nav ul li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#header_nav ul li a {
+    display: inline-flex;
+    height: 100%;
+    align-items: center;
+    padding: 0 12px;
+    text-decoration: none;
+}
+
+#header_nav ul li:hover {
+    background: #fff;
+}
+
+#header_nav div {
+    margin: 0 10px;
+    padding: 10px;
+}
+
+
+#header_nav div:hover {
+    background-color: #fff;
+}
+
+#header_subnav {
+    width: 100%;
+    height: 70px;
+    background-color: orange;
+    display: flex;
+    padding: 0;
+    margin: 0 auto;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+#logo {
+    width: fit-content;
+    height: fit-content;
+}
+#logo :hover{
+    transform: scale(1.2);
+}
+
+#menu {
+    height: fit-content;
+    width: fit-content;
+    margin: 0;
+    padding: 20px;
+    position: relative;
+}
+
+#menu_btn {
+    background-color: inherit;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#menu:hover {
+    background-color: rgb(235, 91, 8);   
+}
+
+#menu ul {
+    list-style: none;
+    display: none;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 100%;
+    left: 0;
+}
+
+#menu:hover ul {
+    display: block;
+    z-index: 1000;
+}
+
+
+#menu ul li {
+    max-width: 250px;
+    min-width: 80px;
+    max-height: 100px;
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    background-color: burlywood;
+    font-size: 20px;
+}
+
+#menu ul li:hover {
+    color: rgb(231, 123, 8);
+}
+
+#sach_truyen {
+    position: relative;
+}
+
+#sach_truyen #sach_truyen_list {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 100%;
+    color: black;
+}
+
+#sach_truyen #sach_truyen_btn {
+    text-align: center;
+    width: fit-content;
+}
+
+
+
+#search_form {
+    height: 50px;
+    padding: 5px;
+    max-width: 700px;
+    min-width: 100px;
+    display: flex;
+    flex: 1;
+    gap: 10px;
+    border: 1px solid #ff4500;
+    background-color: #ff4500;
+    border-radius: 50px;
+}
+
+
+#search {
+    border-radius: 20px;
+    padding: 10px 20px;
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    color: orangered;
+}
+
+#submit_btn, #filter-btn {
+    border: 0;
+    padding: 5px 20px;
+    border-radius: 20px;
+    background-color: inherit;
+}
+
+#submit_btn:hover, #filter-btn:hover {
+    background-color: rgb(231, 123, 8);
+    border-color: red;
+}
+
+
+#shop button {
+    background-color: inherit;
+    border: 0;
+    border-radius: 150px;
+    padding: 15px 25px;
+    margin: 0;
+}
+
+#shop button:hover {
+    background-color: rgb(235, 91, 8);
+}
+
+#text_inner {
+    height: 100px;
+    width: 100%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 500px) {
+    #menu {
+        gap: 5px;
+    }
+
+    #logo {
+        display: none;
+    }
+}
+
+#shop {
+    position: relative;
+    /* để z-index có tác dụng */
+    z-index: 1100;
+    /* cao hơn overlay */
+}
+
+#overlayer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+    /* luôn thấp hơn nút shop */
+}
+
+#overlayer.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid #444;
+    color: #aaa;
+    font-size: 0.9rem;
+    height: 150px;
+    background-color: bisque;
+}
+/* Container form */
+#filter-form {
+    max-width: 420px;
+    margin: 0;
+    padding: 20px;
+    background-color: #fdfdfd;
+    border-radius: 12px;
+    border:3px solid orange;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', sans-serif;
+    position: absolute; /* để bật/tắt popup */
+    top: 100%;
+    right: 30%;
+    opacity: 0;
+    transform: scale(0);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+/* Khi bật form */
+#filter-form.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+/* Các div bên trong form */
+#filter-form > div {
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Label */
+#filter-form label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+/* Select box */
+#filter-form select {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+#filter-form select:hover {
+    border-color: #007BFF;
+}
+
+/* Khoảng giá: div.flex */
+.range-inputs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;       /* không xuống dòng */
+}
+
+/* Label trong range-inputs */
+.range-inputs label {
+    display: inline-flex;    /* text + input trên 1 hàng */
+    align-items: center;
+    gap: 5px;
+    flex: 1;                 /* chia đều, không vượt container */
+}
+
+/* Input number */
+.range-inputs input[type="number"] {
+    width: 100%;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Ẩn mọi phần khác khi kích hoạt chế độ xem thể loại */
+body.hide-others > *:not(#danhsach) {
+    display: none !important;
+}
+
+/* Phóng to phần sản phẩm chiếm toàn màn hình */
+#danhsach.fullscreen {
+    width: 100%;
+    max-width: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+    background: white;
+    z-index: 999;
+    padding: 40px;
+    animation: zoomIn 0.3s ease-in-out;
+}
+
+/* Hiệu ứng phóng to */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Nút thoát chế độ toàn màn hình */
+#exit-fullscreen {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+
+/* Responsive nhỏ hơn 400px
+@media (max-width: 400px) {
+    .range-inputs {
+        flex-direction: column;
+    }
+} */
+

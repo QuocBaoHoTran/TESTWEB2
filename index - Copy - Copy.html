@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Web Ban Sach</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/phan2.css">
+    <link rel="stylesheet" href="css/style2.css">
+    <script src="js/script.js" defer></script>
+    <script src="https://kit.fontawesome.com/078463c473.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/giohang.css">
+    <script src="js/giohang.js" defer></script>
+    <script src="js/timkiem.js" defer></script>
+    <script src="js/loadData.js" defer></script>
+    <script src="js/slider.js" defer></script>
+    <!-- <script src="js/showbook.js" defer></script> -->
+    <script type="module" src="js/showbook.js"></script>
+
+</head>
+
+<body>
+    <!-- <button id="scroll_top">Lên trên</button> -->
+
+    <div id="header_subnav">
+        <a href="index - Copy - Copy.html" id="logo">
+            <i class="fa-solid fa-book"></i>
+        </a>
+        <div id="menu">
+            <button id="menu_btn"><i class="fa-solid fa-bars"></i></button>
+            <ul id="sach_truyen">
+                <li><a href="#" id="tamlyhoc">Tâm Lý Học</a></li>
+                <li><a href="#" id="vanhoc">Văn Học</a></li>
+                <li><a href="#" id="sachgiaokhoa">Sách Giáo Khoa</a></li>
+                <li><a href="#" id="khoahoccongnghe">Khoa Học - Công Nghệ</a></li>
+                <li><a href="#" id="kinhte">Kinh Tế</a></li>
+                <li><a href="#" id="truyentranh">Truyện Tranh</a></li>  
+            </ul>
+               
+
+        </div>
+        <div id="search_form">
+            <input type="search" id="search" placeholder="Tìm kiếm..." />
+            <button id="filter-btn"><i class="fa-solid fa-filter"></i></button>
+            <button id="submit_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <div id="filter-form">
+            <div>
+                <label>Giá sản phẩm</label>
+                <select title="Lọc giá sản phẩm">
+                    <option value="Chọn" selected> Chọn </option>
+                    <option value="Thấp đến cao">Thấp đến cao</option>
+                    <option value="Cao đến thấp">Cao đến thấp</option>
+                </select>
+            </div>
+            <div>
+                <label>Khoảng giá:</label><br>
+                <label>Từ: </label>
+                <input type="number" id="minRange" min="0" max="1000000" step="50000">
+                <lable>đến: </lable>
+                <input type="number" id="maxRange" min="0" max="1000000" step="50000">
+            </div>
+        </div>
+        <div id="shop">
+            <button onclick="toggleCart()"><i class="fa-solid fa-cart-shopping"></i></button>
+            <div id="shop_form">
+                <div class="cart-modal" id="cart-modal">
+                    <div class="cart-content">
+                        <button class="close-btn" onclick="toggleCart()">X</button>
+                        <h2>Giỏ Hàng</h2>
+                        <table id="cart-table">
+                            <thead>
+                                <tr>
+                                    <th>Sách</th>
+                                    <th>SL</th>
+                                    <th>Giá</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="2">Tổng:</td>
+                                    <td id="cart-total">0₫</td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <button onclick="checkout()">Thanh toán</button>
+                        <button onclick="clearCart()" style="background:#c0392b;margin-left:10px;">Xóa giỏ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="header_nav">
+            <ul>
+                <li><a href="dangnhap.html?action=signin">Đăng ký</a></li>
+                <li><a href="dangnhap.html?action=signup">Đăng nhập</a></li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <div class="slidecontainer">
+            <div class="slides">
+                <img src="img/slider1.jpg" class="active">
+                <img src="img/slider2.jpg">
+                <img src="img/slider3.jpg">
+            </div>
+            <div class="buttons">
+                <span class="next">&#10095;</span>
+                <span class="prev">&#10094;</span>
+            </div>
+            <div class="dotsContainer">
+                <div class="dot active" attr='0' onclick="switchImage(this)"></div>
+                <div class="dot" attr='1' onclick="switchImage(this)"></div>
+                <div class="dot" attr='2' onclick="switchImage(this)"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="listimage">
+        <div class="image">
+            <img src="img/image1.jpg"
+                alt="anh1">
+            <div class="overlay">Bút Sơn Công Nghiệp</div>
+        </div>
+        <div class="image">
+            <img src="img/image2.jpg"
+                alt="anh2">
+            <div class="overlay">Sổ vẽ A5</div>
+        </div>
+        <div class="image">
+            <img src="img/image3.jpg"
+                alt="anh3">
+            <div class="overlay">Xà Bông Thiên Nhiên</div>
+        </div>
+    </div>
+    <div>
+        <button id="back-home">Quay về trang chính</button>
+    </div>
+
+    <div id="main-content">
+        <div class="section-box"  data-category-section="ban-chay">
+            <div class="header-box">
+                <h1>SẢN PHẨM BÁN CHẠY </h1>
+            </div>
+
+            <div class="content-box">
+                <input type="radio" id="page-1-bc" name="page-bc" checked>
+                <input type="radio" id="page-2-bc" name="page-bc">
+
+                <div id="product-list-bc">
+                    <div class="product-card product-page-1-bc" >
+                        <img src="img/hiemhoahacker.jpg" 
+                             alt="Hiểm Họa Hacker - Hiểu Biết Và Phòng Chống"
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Ảnh+lỗi';">
+                        <p class="title">Hiểm Họa Hacker - Hiểu Biết Và Phòng Chống</p>
+                        <p class="price">155.000 VNĐ</p>
+                    </div>
+                    <div class="product-card product-page-1-bc" >
+                        <img src="img/philytri.jpg" 
+                             alt="Phi Lý Trí" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Ảnh+lỗi';">
+                        <p class="title">Phi Lý Trí</p>
+                        <p class="price">169.000 VNĐ</p>
+                    </div>
+                    <div class="product-card product-page-1-bc">
+                        <img src="img/sinhhoclop9.jpg" 
+                             alt="Sinh Học Lớp 9"
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Ảnh+lỗi';">
+                        <p class="title">Sinh Học Lớp 9</p>
+                        <p class="price">21.000 VNĐ</p>
+                    </div>
+                    <div class="product-card product-page-1-bc">
+                        <img src="img/haisophan.jpg" 
+                            alt="Hai Số Phận" 
+                            onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Ảnh+lỗi';">
+                        <p class="title">Hai Số Phận</p>
+                        <p class="price">195.000 VNĐ</p>
+                    </div>
+
+                    <div class="product-card product-page-2-bc">
+                        <img src="img/dongianvaphuctap.jpg"
+                             alt="Giải Thích Các Thứ - Nói Đơn Giản Về Những Thứ Phức Tạp"
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Ảnh+lỗi';">
+                        <p class="title">Giải Thích Các Thứ - Nói Đơn Giản Về Những Thứ Phức Tạp</p>
+                        <p class="price">170.000 VNĐ</p>
+                    </div>
+                    <div class="product-card product-page-2-bc">
+                        <img src="img/trituexuccam.jpg" 
+                             alt="Trí Tuệ Xúc Cảm"
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Ảnh+lỗi';">
+                        <p class="title">Trí Tuệ Xúc Cảm</p>
+                        <p class="price">199.000 VNĐ</p>
+                    </div>
+                    <div class="product-card product-page-2-bc">
+                        <img src="img/vatlylop8.jpg" 
+                             alt="Vật Lí Lớp 8"
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Ảnh+lỗi';">
+                        <p class="title">Vật Lí  Lớp 8</p>
+                        <p class="price">13.000 VNĐ</p>
+                    </div>
+                    <div class="product-card product-page-2-bc">
+                        <img src="img/ditimlesong.jpg"
+                             alt="Đi Tìm Lẽ Sống"
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Ảnh+lỗi';">
+                        <p class="title">Đi Tìm Lẽ Sống</p>
+                        <p class="price">88.000 VNĐ</p>
+                    </div>
+                </div>
+
+                <div id="pagination-controls-bc">
+                    <label for="page-1-bc" id="nav-prev-bc" class="nav-btn gray">&#8592;</label>
+                    <span id="page-info-bc"></span>
+                    <label for="page-2-bc" id="nav-next-bc" class="nav-btn red">&#8594;</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-box" data-category-section="moi">
+            <div class="header-box">
+                <h1>SẢN PHẨM MỚI</h1>
+            </div>
+
+            <div class="content-box">
+                <input type="radio" id="page-3-moi" name="page-moi" checked>
+                <input type="radio" id="page-4-moi" name="page-moi">
+
+                <div id="product-list-moi">
+                    <div class="product-card product-page-3-moi">
+                        <img src="img/caycamcuatoi.png" 
+                             alt="Cây Cam Ngọt Của Tôi" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Ảnh+lỗi';">
+                        <p class="title">Cây Cam Ngọt Của Tôi</p>
+                        <p class="price">108.000 VNĐ</p>
+                    </div>
+                    <div class="product-card product-page-3-moi">
+                        <img src="img/thientaibentraikedienbenphai.jpg" 
+                             alt="Thiên Tài Bên Trái Kẻ Điên Bên Phải" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Ảnh+lỗi';">
+                        <p class="title">Thiên Tài Bên Trái Kẻ Điên Bên Phải</p>
+                        <p class="price">145.000 VNĐ</p>
+                    </div>
+                    <div class="product-card product-page-3-moi">
+                        <img src="img/kinhtehochaihuoc.jpg" 
+                             alt="Kinh Tế Học Hài Hước" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Ảnh+lỗi';">
+                        <p class="title">Kinh Tế Học Hài Hước</p>
+                        <p class="price">169.000 VNĐ</p>
+                    </div>
+                    <div class="product-card product-page-3-moi">
+                        <img src="img/nhagiakim.jpg" 
+                             alt="Nhà Giả Kim"
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Ảnh+lỗi';">
+                        <p class="title">Nhà Giả Kim</p>
+                        <p class="price">79.000 VNĐ</p>
+                    </div>
+
+                    <div class="product-card product-page-4-moi">
+                        <img src="img/IS-BOK.jpg"
+                             alt="IS - BOK 2.0 - Bộ kiến thức cốt lõi về an toàn thông tin"
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Ảnh+lỗi';">
+                        <p class="title">IS - BOK 2.0 - Bộ kiến thức cốt lõi về an toàn thông tin</p>
+                        <p class="price">490.000 VNĐ</p>
+                    </div>
+                    <div class="product-card product-page-4-moi">
+                        <img src="img/tatden.jpg" 
+                             alt="Tắt Đèn"
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Ảnh+lỗi';">
+                        <p class="title">Tắt Đèn</p>
+                        <p class="price">45.000 VNĐ</p>
+                    </div>
+                    <div class="product-card product-page-4-moi">
+                        <img src="img/nhungcuocphieuluutrongkinhdoanh.jpg" 
+                             alt="Những Cuộc Phiêu Lưu Trong Kinh Doanh"
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Ảnh+lỗi';">
+                        <p class="title">Những Cuộc Phiêu Lưu Trong Kinh Doanh</p>
+                        <p class="price">110.000 VNĐ</p>
+                    </div>
+                    <div class="product-card product-page-4-moi">
+                        <img src="img/thegioiphang.jpg" 
+                             alt="Thế Giới Phẳng" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Ảnh+lỗi';">
+                        <p class="title">Thế Giới Phẳng</p>
+                        <p class="price">272.000 VNĐ</p>
+                    </div>
+                </div>
+
+                <div id="pagination-controls-moi">
+                    <label for="page-3-moi" id="nav-prev-moi" class="nav-btn gray">&#8592;</label>
+                    <span id="page-info-moi"></span>
+                    <label for="page-4-moi" id="nav-next-moi" class="nav-btn red">&#8594;</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-box" data-category-section="noi-bat">
+            <div class="header-box" >
+                <h1>SẢN PHẨM NỔI BẬT </h1>
+            </div>
+            <div class="content-box">
+                <input type="radio" id="page-5-nb" name="page-nb" checked>
+                <input type="radio" id="page-6-nb" name="page-nb">
+
+                <div id="product-list-nb">
+                    <div class="product-card product-page-5-nb">
+                        <img src="img/khoahocdulieu.jpg" 
+                             alt="Khoa Học Dữ Liệu, Trí Tuệ Nhân Tạo Và Học Máy Trong Phát Triển Thuốc" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Ảnh+lỗi';">
+                        <p class="title">Khoa Học Dữ Liệu, Trí Tuệ Nhân Tạo Và Học Máy Trong Phát Triển Thuốc</p>
+                        <p class="price">399.000 VNĐ</p>
+                    </div>
+                    <div class="product-card product-page-5-nb">
+                        <img src="img/nguvan11.jpg" 
+                             alt="Ngữ Văn Lớp 11" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Ảnh+lỗi';">
+                        <p class="title">Ngữ Văn Lớp 11</p>
+                        <p class="price">25.000 VNĐ</p>
+                    </div>
+                    <div class="product-card product-page-5-nb">
+                        <img src="img/conthuyen.jpg" 
+                             alt="Con Thuyền"
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Ảnh+lỗi';">
+                        <p class="title">Con Thuyền</p>
+                        <p class="price">128.000 VNĐ</p>
+                    </div>
+                    <div class="product-card product-page-5-nb">
+                        <img src="img/vatlylop8.jpg" 
+                             alt="Vật Lí Lớp 8"
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Ảnh+lỗi';">
+                        <p class="title">Vật Lí  Lớp 8</p>
+                        <p class="price">13.000 VNĐ</p>
+                    </div>
+
+                    <div class="product-card product-page-6-nb">
+                        <img src="img/onggiavabienca.jpg"
+                             alt="Ông Già Và Biển Cả"
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Ảnh+lỗi';">
+                        <p class="title">Ông Già Và Biển Cả</p>
+                        <p class="price">45.000 VNĐ</p>
+                    </div>
+                    <div class="product-card product-page-6-nb">
+                        <img src="img/sinhhoclop9.jpg" 
+                             alt="Sinh Học Lớp 9"
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Ảnh+lỗi';">
+                        <p class="title">Sinh Học Lớp 9</p>
+                        <p class="price">21.000 VNĐ</p>
+                    </div>
+                    <div class="product-card product-page-6-nb">
+                        <img src="img/IS-BOK.jpg"
+                             alt="IS - BOK 2.0 - Bộ kiến thức cốt lõi về an toàn thông tin"
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Ảnh+lỗi';">
+                        <p class="title">IS - BOK 2.0 - Bộ kiến thức cốt lõi về an toàn thông tin</p>
+                        <p class="price">490.000 VNĐ</p>
+                    </div>
+                    <div class="product-card product-page-6-nb">
+                        <img src="img/docvibaikyai.jpg"
+                            alt="Đọc Vị Bất Kỳ Ai"
+                            onerror="this.onerror=null;this.src='https://placehold.co/200x300/CCCCCC/000?text=Lỗi+Ảnh';">
+                        <p class="title">Đọc Vị Bất Kỳ Ai</p>
+                        <p class="price">89.000 VNĐ</p>
+                    </div>
+                </div>
+                <div id="pagination-controls-nb">
+                    <label for="page-5-nb" id="nav-prev-nb" class="nav-btn gray">&#8592;</label>
+                    <span id="page-info-nb"></span>
+                    <label for="page-6-nb" id="nav-next-nb" class="nav-btn red">&#8594;</label>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+        <div class="section-box" data-category-section="ketquatimkiem" id="ketquatimkiem">
+            <div class="header-box">
+                <h1 id="search-title">Kết Quả Tìm Kiếm</h1>
+            </div>
+
+            <div class="content-box">
+                <div id="product-list-kqtk" class="product-list"></div>
+            </div>
+        </div>
+
+
+    <div class="copyright">
+        &copy; 2025 We-BookStore. Tất cả các quyền được bảo lưu.
+    </div>
+    <div id="overlayer"></div>
+
+</body>
+
+</html>
